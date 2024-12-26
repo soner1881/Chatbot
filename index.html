@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>İSG Chatbot</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#6366f1',
+                        secondary: '#ec4899',
+                        accent: '#8b5cf6',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gradient-to-br from-indigo-100 via-purple-100 to-pink-100 min-h-screen flex items-center justify-center p-4">
+    <div class="w-full max-w-2xl bg-white rounded-xl shadow-xl overflow-hidden border border-indigo-100">
+        <!-- Header -->
+        <div class="bg-gradient-to-r from-primary to-secondary p-4 text-white flex items-center">
+            <div class="w-12 h-12 rounded-full bg-white flex items-center justify-center shadow-lg">
+                <i class="fas fa-robot text-accent text-2xl"></i>
+            </div>
+            <div class="ml-4">
+                <h1 class="font-bold text-xl">İSG Asistanı</h1>
+                <p class="text-sm opacity-90">Size nasıl yardımcı olabilirim?</p>
+            </div>
+        </div>
+
+        <!-- Messages -->
+        <div id="messages" class="h-[500px] overflow-y-auto p-6 space-y-4 bg-gradient-to-b from-white to-indigo-50">
+            <div class="bot-message bg-gradient-to-r from-indigo-100 to-purple-100 p-4 rounded-2xl max-w-[80%] shadow-md">
+                Merhaba! Size İSG konularında nasıl yardımcı olabilirim?
+            </div>
+        </div>
+
+        <!-- Input -->
+        <div class="border-t border-indigo-100 p-4 bg-white">
+            <div class="flex space-x-3">
+                <input type="text"
+                       id="user-input"
+                       class="flex-1 border border-indigo-200 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+                       placeholder="Mesajınızı yazın...">
+                <button onclick="sendMessage()"
+                        class="bg-gradient-to-r from-primary to-accent text-white px-6 py-3 rounded-xl hover:opacity-90 transition-all duration-200 flex items-center shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
+                    <span>Gönder</span>
+                    <i class="fas fa-paper-plane ml-2"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const messagesDiv = document.getElementById('messages');
+        const userInput = document.getElementById('user-input');
+
+        function addMessage(message, isUser) {
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `${isUser
+                ? 'ml-auto bg-gradient-to-r from-primary to-secondary text-white'
+                : 'bg-gradient-to-r from-indigo-100 to-purple-100 text-gray-800'}
+                p-4 rounded-2xl max-w-[80%] shadow-md animate-fade-in`;
+            messageDiv.textContent = message;
+            messagesDiv.appendChild(messageDiv);
+            messagesDiv.scrollTop = messagesDiv.scrollHeight;
+        }
+
+        async function sendMessage() {
+            const message = userInput.value.trim();
+            if (!message) return;
+
+            addMessage(message, true);
+            userInput.value = '';
+
+            try {
+                const response = await fetch('http://localhost:5005/webhooks/rest/webhook', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        sender: 'user',
+                        message: message
+                    })
+                });
+
+                const data = await response.json();
+                data.forEach(reply => {
+                    if (reply.text) {
+                        setTimeout(() => {
+                            addMessage(reply.text, false);
+                        }, 500);
+                    }
+                });
+            } catch (error) {
+                console.error('Error:', error);
+                addMessage('Üzgünüm, bir hata oluştu.', false);
+            }
+        }
+
+        userInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                sendMessage();
+            }
+        });
+
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes fadeIn {
+                from { opacity: 0; transform: translateY(10px); }
+                to { opacity: 1; transform: translateY(0); }
+            }
+            .animate-fade-in {
+                animation: fadeIn 0.3s ease-out forwards;
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>

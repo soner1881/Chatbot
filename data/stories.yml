@@ -1,0 +1,57 @@
+version: "3.1"
+
+stories:
+- story: selamlama
+  steps:
+  - intent: selamlama
+  - action: utter_selamlama
+
+- story: isg bilgi
+  steps:
+  - intent: isg_nedir
+  - action: utter_isg_nedir
+
+- story: hijyen bilgi
+  steps:
+  - intent: hijyen_onemi
+  - action: utter_hijyen_onemi
+
+- story: kimyasal bilgi
+  steps:
+  - intent: tehlikeli_kimyasallar
+  - action: utter_tehlikeli_kimyasallar
+
+- story: ergonomi bilgi
+  steps:
+  - intent: ergonomi
+  - action: utter_ergonomi
+
+- story: kaza bilgi
+  steps:
+  - intent: is_kazasi
+  - action: utter_is_kazasi
+
+- story: meslek hastaligi bilgi
+  steps:
+  - intent: meslek_hastaligi
+  - action: utter_meslek_hastaligi
+
+- story: risk bilgi
+  steps:
+  - intent: risk_degerlendirmesi
+  - action: utter_risk_degerlendirmesi
+
+- story: kkd bilgi
+  steps:
+  - intent: kisisel_koruyucu
+  - action: utter_kisisel_koruyucu
+
+- story: acil durum bilgi
+  steps:
+  - intent: acil_durum
+  - action: utter_acil_durum
+
+- story: yasal bilgi
+  steps:
+  - intent: yasal_sorumluluk
+  - action: utter_yasal_sorumluluk

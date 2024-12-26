@@ -1,0 +1,43 @@
+version: "3.1"
+
+rules:
+  - rule: Selamlama kuralı
+    steps:
+      - intent: selamlama
+      - action: utter_selamlama
+
+  - rule: Out-of-scope konular için yanıt
+    steps:
+      - intent: nlu_fallback
+      - action: utter_default
+
+  - rule: İSG tanım bilgisi
+    conversation_start: true
+    steps:
+      - intent: isg_nedir
+      - action: utter_isg_nedir
+
+  - rule: Acil durum bilgisi öncelikli
+    steps:
+      - intent: acil_durum
+      - action: utter_acil_durum
+
+  - rule: İş kazası acil yanıt
+    steps:
+      - intent: is_kazasi
+      - action: utter_is_kazasi
+
+  - rule: Kimyasal tehlike uyarısı
+    steps:
+      - intent: tehlikeli_kimyasallar
+      - action: utter_tehlikeli_kimyasallar
+
+  - rule: Yasal bilgilendirme
+    steps:
+      - intent: yasal_sorumluluk
+      - action: utter_yasal_sorumluluk
+
+responses:
+  utter_default:
+    - text: "Üzgünüm, bu konu hakkında bilgim yok. Size İSG konusunda yardımcı olabilirim."
+    - text: "Bu sorunuzu anlayamadım. İSG ile ilgili başka bir konuda yardımcı olabilir miyim?"

@@ -1,0 +1,49 @@
+version: "3.1"
+
+intents:
+  - selamlama
+  - isg_nedir
+  - hijyen_onemi
+  - tehlikeli_kimyasallar
+  - ergonomi
+  - is_kazasi
+  - meslek_hastaligi
+  - risk_degerlendirmesi
+  - kisisel_koruyucu
+  - acil_durum
+  - yasal_sorumluluk
+
+responses:
+  utter_selamlama:
+    - text: "Merhaba! İş Sağlığı ve Güvenliği konularında size yardımcı olmaktan memnuniyet duyarım. Hangi konuda bilgi almak istersiniz?"
+    - text: "Merhaba! Size İSG konularında nasıl yardımcı olabilirim?"
+
+  utter_isg_nedir:
+    - text: "İş sağlığı ve güvenliği (İSG), çalışanların iş yerindeki sağlık ve güvenlik risklerinden korunmasını sağlayan tedbirler ve düzenlemelerdir. Temel amaçları:\n- İş kazalarını önlemek\n- Meslek hastalıklarını engellemek\n- Çalışan sağlığını korumak\n- Güvenli çalışma ortamı oluşturmak"
+
+  utter_hijyen_onemi:
+    - text: "İş yerinde hijyen çok önemlidir çünkü:\n- Çalışan sağlığını korur\n- Bulaşıcı hastalıkları önler\n- Çalışan verimliliğini artırır\n- Meslek hastalıklarını engeller\n- İş kalitesini yükseltir"
+
+  utter_tehlikeli_kimyasallar:
+    - text: "İş yerinde risk oluşturan tehlikeli kimyasallar:\n- Solventler\n- Asitler ve bazlar\n- Ağır metaller (cıva, kurşun)\n- Toksik gazlar (amonyak)\n- Kanserojen maddeler\n- Yanıcı ve patlayıcı maddeler\n\nBu maddelerle çalışırken mutlaka uygun KKD kullanılmalıdır."
+
+  utter_ergonomi:
+    - text: "İş yeri ergonomisi için temel kurallar:\n- Çalışma masası ve sandalye boy-kilo'ya uygun olmalı\n- Monitör göz hizasında konumlandırılmalı\n- Klavye ve mouse ergonomik pozisyonda olmalı\n- Düzenli molalar verilmeli\n- Aydınlatma yeterli olmalı\n- Havalandırma uygun olmalı"
+
+  utter_is_kazasi:
+    - text: "İş kazası durumunda yapılması gerekenler:\n1. Yaralının güvenliği sağlanmalı\n2. İlk yardım uygulanmalı\n3. Acil servis (112) aranmalı\n4. İşverene bilgi verilmeli\n5. Kaza raporu tutulmalı\n6. SGK'ya 3 iş günü içinde bildirilmeli"
+
+  utter_meslek_hastaligi:
+    - text: "Meslek hastalıkları, işin niteliğinden kaynaklanan hastalıklardır. Örnek türleri:\n- Akciğer hastalıkları (tozdan kaynaklı)\n- İşitme kayıpları (gürültüden kaynaklı)\n- Kas-iskelet sistemi rahatsızlıkları\n- Cilt hastalıkları\n- Kimyasal maruziyete bağlı hastalıklar"
+
+  utter_risk_degerlendirmesi:
+    - text: "Risk değerlendirmesi şu aşamaları içerir:\n1. Tehlikelerin belirlenmesi\n2. Risklerin analizi\n3. Önlemlerin belirlenmesi\n4. Uygulama\n5. İzleme ve gözden geçirme\n\nDüzenli olarak güncellenmesi gerekir."
+
+  utter_kisisel_koruyucu:
+    - text: "Temel kişisel koruyucu donanımlar (KKD):\n- Baret (kafa koruma)\n- Gözlük/yüz siperi (göz koruma)\n- Maske (solunum koruma)\n- Kulaklık (işitme koruma)\n- Eldiven (el koruma)\n- Çelik burunlu ayakkabı (ayak koruma)\n- Emniyet kemeri (yüksekte çalışma)"
+
+  utter_acil_durum:
+    - text: "Acil durum planı şunları içerir:\n1. Tahliye planı ve çıkış yolları\n2. Yangın söndürme ekipmanları\n3. İlk yardım malzemeleri\n4. Toplanma noktaları\n5. Acil durum ekipleri\n6. İletişim prosedürleri\n7. Düzenli tatbikatlar"
+
+  utter_yasal_sorumluluk:
+    - text: "6331 Sayılı İSG Kanunu kapsamında temel sorumluluklar:\n\nİşveren:\n- Risk değerlendirmesi yapmak\n- Eğitim vermek\n- KKD sağlamak\n- İSG profesyoneli bulundurmak\n\nÇalışan:\n- Kurallara uymak\n- KKD kullanmak\n- Tehlikeleri bildirmek"

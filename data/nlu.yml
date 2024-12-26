@@ -1,0 +1,105 @@
+version: "3.1"
+nlu:
+  - intent: selamlama
+    examples: |
+      - merhaba
+      - selam
+      - günaydın
+      - iyi günler
+      - nasılsın
+      - iyi akşamlar
+      - merhaba nasıl yardımcı olabilirsiniz
+      - size bir sorum var
+
+  - intent: isg_nedir
+    examples: |
+      - iş sağlığı ve güvenliği nedir
+      - isg ne demek
+      - isg'nin tanımı nedir
+      - isg hakkında bilgi ver
+      - isg kapsamı nedir
+      - iş güvenliği nedir
+      - iş sağlığı ne anlama gelir
+
+  - intent: hijyen_onemi
+    examples: |
+      - iş yerinde hijyen neden önemli
+      - hijyen neden gerekli
+      - temizlik neden önemli
+      - hijyenin önemi nedir
+      - iş yeri temizliği
+      - hijyen kuralları nelerdir
+      - temizlik standartları
+
+  - intent: tehlikeli_kimyasallar
+    examples: |
+      - hangi kimyasallar tehlikeli
+      - tehlikeli kimyasallar nelerdir
+      - riskli kimyasallar
+      - kimyasal riskler
+      - zararlı maddeler
+      - toksik maddeler
+      - kimyasal tehlikeler
+
+  - intent: ergonomi
+    examples: |
+      - ergonomi nedir
+      - ergonomik düzenlemeler nasıl yapılır
+      - iş yerinde ergonomi
+      - ergonomi kuralları
+      - doğru oturma pozisyonu
+      - masa düzeni nasıl olmalı
+      - ekran yüksekliği
+
+  - intent: is_kazasi
+    examples: |
+      - iş kazası nedir
+      - iş kazası durumunda ne yapılmalı
+      - kazaları nasıl önleriz
+      - kaza bildirim süresi
+      - iş kazası bildirimi
+      - kazadan sonra yapılacaklar
+
+  - intent: meslek_hastaligi
+    examples: |
+      - meslek hastalığı nedir
+      - hangi hastalıklar meslek hastalığıdır
+      - meslek hastalıkları tipleri
+      - işe bağlı hastalıklar
+      - meslek hastalığı örnekleri
+
+  - intent: risk_degerlendirmesi
+    examples: |
+      - risk değerlendirmesi nedir
+      - risk analizi nasıl yapılır
+      - tehlike değerlendirmesi
+      - risk belirleme
+      - tehlike ve risk farkı
+      - risk yönetimi
+
+  - intent: kisisel_koruyucu
+    examples: |
+      - kişisel koruyucu donanımlar nelerdir
+      - kkd ne demek
+      - hangi koruyucular kullanılmalı
+      - iş güvenliği ekipmanları
+      - koruyucu malzemeler
+      - güvenlik ekipmanları
+
+  - intent: acil_durum
+    examples: |
+      - acil durum planı nedir
+      - yangın durumunda ne yapmalı
+      - tahliye nasıl yapılır
+      - acil çıkışlar
+      - toplanma noktası
+      - acil durum prosedürleri
+
+  - intent: yasal_sorumluluk
+    examples: |
+      - işverenin sorumlulukları nelerdir
+      - çalışanların yükümlülükleri
+      - isg kanunu
+      - yasal zorunluluklar
+      - isg mevzuatı
+      - 6331 sayılı kanun
